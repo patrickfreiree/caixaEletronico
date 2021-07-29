@@ -62,8 +62,7 @@ public class caixaEletronico {
 					System.out.println("--- 1 - Saldo ---");
 					System.out.println("--- 2 - Depósito ---");
 					System.out.println("--- 3 - Saque ---");
-					System.out.println("--- 4 - Transferência ---");
-					System.out.println("--- 5 - Consultar Extrato ---");
+					System.out.println("--- 4 - Consultar Extrato ---");
 					System.out.println("--- 0 - Sair ---");
 					System.out.println("-------------------");
 
@@ -134,35 +133,6 @@ public class caixaEletronico {
 						break;
 
 					case 4:
-						saldoAtual = saldoInicial + deposito - saque - valortransferido;
-						System.out.print("Digite o nome do banco para qual deseja fazer a transfêrencia: ");
-						String banco = ler.next();
-						System.out.print(
-								"Digite o número da agência do banco para qual deseja fazer a transfêrencia (Digitar apenas números): ");
-						System.out.print(
-								"Digite o número da conta do usuario para qual deseja fazer a transfêrencia (Digitar apenas números): ");
-						System.out.print("Digite o valor a ser tranferido? R$");
-						valortranf = ler.nextDouble();
-						if (valortranf < 0) {
-							System.out.println("O VALOR DIGITADO R$" + valortransferido + " É INVÁLIDO!!!");
-						} else if (valortranf > saldoAtual) {
-							System.out.println("SALDO INSUFISIENTE!!!");
-						} else {
-							saldoAtual = saldoAtual - valortransferido;
-							System.out.println("R$" + valortransferido + " Tranferido com sucesso");
-							System.out.println("Seu saldo é de R$" + saldoAtual);
-							valor.add(valortransferido);
-							processo.add("Tranfêrencia ");
-						}
-						System.out.print("Deseja fazer mais alguma operação ? (s/n): ");
-						String captcha3 = ler.next();
-						if ("s".equals(captcha3)) {
-						} else if ("n".equals(captcha3)) {
-							main(args);
-						}
-						break;
-
-					case 5:
 						System.out.println("------ Extrato ------");
 						System.out.println("Processo              Valor");
 						System.out.println("Saldo inicial         " + saldoInicial);
