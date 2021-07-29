@@ -40,10 +40,12 @@ public class caixaEletronico {
 
 		String senha = "123";
 		String senhaDigitada;
-		double deposito = 0, saldoAtual = 0, saque = 0;
+		
+		
+		double deposito = 0, saldoAtual = 0, saque = 0; // double visto em call que suporta valor maior.
 		double saldoInicial = 1600;
 		int menu = 0;
-		double valortranf = 0;
+		double valortransferido = 0;
 
 		System.out.print("Digte sua senha: ");
 		senhaDigitada = ler.next();
@@ -71,7 +73,7 @@ public class caixaEletronico {
 					// switch = pega o valor q corresponde no menu.
 					switch (menu) {
 					case 1:
-						saldoAtual = saldoInicial + deposito - saque - valortranf;
+						saldoAtual = saldoInicial + deposito - saque - valortransferido;
 						System.out.println("Seu saldo inical é/era: R$" + saldoInicial);
 						System.out.println("Seu saldo atual é de R$" + saldoAtual);
 						valor.add(saldoAtual);
@@ -81,13 +83,12 @@ public class caixaEletronico {
 						if ("s".equals(captcha)) {
 							int menu1 = menu;
 						} else if ("n".equals(captcha)) {
-							main(args);
-						//utilizo main para leitura do valor : verificação.
+							main(args);  // utilizo main para leitura do valor : verificação. 
 						}
 						break;
 
 					case 2:
-						saldoAtual = saldoInicial + deposito - saque - valortranf;
+						saldoAtual = saldoInicial + deposito - saque - valortransferido;
 						System.out.print("Digite o valor que deseja depositar: R$");
 						deposito = ler.nextDouble();
 						if (deposito < 0) {
@@ -109,7 +110,7 @@ public class caixaEletronico {
 						break;
 
 					case 3:
-						saldoAtual = saldoInicial + deposito - saque - valortranf;
+						saldoAtual = saldoInicial + deposito - saque - valortransferido;
 						System.out.print("Digite o valor que deseja sacar: R$");
 						saque = ler.nextDouble();
 						if (saque < 0) {
@@ -133,7 +134,7 @@ public class caixaEletronico {
 						break;
 
 					case 4:
-						saldoAtual = saldoInicial + deposito - saque - valortranf;
+						saldoAtual = saldoInicial + deposito - saque - valortransferido;
 						System.out.print("Digite o nome do banco para qual deseja fazer a transfêrencia: ");
 						String banco = ler.next();
 						System.out.print(
@@ -143,14 +144,14 @@ public class caixaEletronico {
 						System.out.print("Digite o valor a ser tranferido? R$");
 						valortranf = ler.nextDouble();
 						if (valortranf < 0) {
-							System.out.println("O VALOR DIGITADO R$" + valortranf + " É INVÁLIDO!!!");
+							System.out.println("O VALOR DIGITADO R$" + valortransferido + " É INVÁLIDO!!!");
 						} else if (valortranf > saldoAtual) {
 							System.out.println("SALDO INSUFISIENTE!!!");
 						} else {
-							saldoAtual = saldoAtual - valortranf;
-							System.out.println("R$" + valortranf + " Tranferido com sucesso");
+							saldoAtual = saldoAtual - valortransferido;
+							System.out.println("R$" + valortransferido + " Tranferido com sucesso");
 							System.out.println("Seu saldo é de R$" + saldoAtual);
-							valor.add(valortranf);
+							valor.add(valortransferido);
 							processo.add("Tranfêrencia ");
 						}
 						System.out.print("Deseja fazer mais alguma operação ? (s/n): ");
@@ -183,7 +184,7 @@ public class caixaEletronico {
 						break;
 
 					default:
-						System.out.println("NÚMERO INVÁLIDO!!!!");
+						System.out.println("VOCÊ DIGITOU NÚMERO INVÁLIDO!!");
 						break;
 					}
 				} while (menu != 0);
