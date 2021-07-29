@@ -153,7 +153,7 @@ public class caixaEletronico {
 						main(args);
 						break;
 
-					default:
+					default:  //default : ausencia de informação. (se nenhuma das anteriores foi escolhido)
 						System.out.println("VOCÊ DIGITOU NÚMERO INVÁLIDO!!");
 						break;
 					}
